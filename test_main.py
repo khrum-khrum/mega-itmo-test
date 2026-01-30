@@ -43,3 +43,25 @@ def test_fibonacci():
     response = client.get("/fibonacci/-1")
     assert response.status_code == 200
     assert response.json() == {"error": "Input must be a non-negative integer"}
+
+
+def test_set_and_get_value():
+    key = "testkey"
+    value = "testvalue"
+
+    # Test POST /value/{key}
+    response = client.post(f"/value/{key}", json={"value": value})
+    assert response.status_code == 200
+    assert response.json() == {"message": f"Value for key '{key}' set successfully"}
+
+    # Test GET /value/{key}
+    response = client.get(f"/value/{key}")
+    assert response.status_code == 200
+    assert response.json() == {"key": key, "value": value}
+
+
+def test_get_nonexistent_value():
+    key = "nonexistentkey"
+    response = client.get(f"/value/{key}")
+    assert response.status_code == 404
+    assert response.json() == {"detail": f"Key '{key}' not found"}
