@@ -10,25 +10,18 @@ def fibonacci(n):
             a, b = b, a + b
         return b
 
-
-def main():
-    """Main function to handle user input and output."""
-    try:
-        n = int(input("Enter the position in the Fibonacci sequence: "))
-        if n < 0:
-            print("Error: Please enter a non-negative integer.")
-            return
-        
+# Top level code to handle user input and output
+try:
+    n = int(input("Enter the position in the Fibonacci sequence: "))
+    if n < 0:
+        print("Error: Please enter a non-negative integer.")
+    else:
         result = fibonacci(n)
         print(f"The {n}-th Fibonacci number is: {result}")
         
         # Also show the sequence up to n
         sequence = [fibonacci(i) for i in range(n+1)]
         print(f"Fibonacci sequence up to position {n}: {sequence}")
-    
+        
     except ValueError:
         print("Error: Please enter a valid integer.")
-
-
-if __name__ == "__main__":
-    main()
