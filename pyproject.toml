@@ -1,0 +1,22 @@
+[project]
+name = "mega-itmo-test"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pytest",
+    "httpx",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+exclude = ["__pycache__", ".git"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+python_files = ["test_*.py"]
