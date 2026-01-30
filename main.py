@@ -1,0 +1,1 @@
+user_input = input("Please enter something: ")\nprint(user_input)

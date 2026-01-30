@@ -1,2 +1,1 @@
-# mega-itmo-test
-Тестовый репозиторий для проверки Агента
+# mega-itmo-test\nТестовый репозиторий для проверки Агента\n\n## New Changes\nAdded a main.py file that receives user input and returns it.
