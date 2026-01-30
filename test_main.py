@@ -44,6 +44,7 @@ def test_fibonacci():
     assert response.status_code == 200
     assert response.json() == {"error": "Input must be a non-negative integer"}
 
+
 def test_set_and_get_value():
     key = "testkey"
     value = "testvalue"
@@ -57,6 +58,7 @@ def test_set_and_get_value():
     response = client.get(f"/value/{key}")
     assert response.status_code == 200
     assert response.json() == {"key": key, "value": value}
+
 
 def test_get_nonexistent_value():
     key = "nonexistentkey"
