@@ -2,3 +2,11 @@
 __pycache__/
 .ruff_cache/
 *.pyc
+.idea/
+.vscode/
+venv/
+.coverage
+.pytest_cache/
+htmlcov/
+.DS_Store
+Thumbs.db
