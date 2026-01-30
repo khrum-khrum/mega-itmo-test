@@ -21,3 +21,25 @@ def test_health():
     response = client.get("/health")
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
+
+
+def test_fibonacci():
+    response = client.get("/fibonacci/0")
+    assert response.status_code == 200
+    assert response.json() == {"result": 0}
+
+    response = client.get("/fibonacci/1")
+    assert response.status_code == 200
+    assert response.json() == {"result": 1}
+
+    response = client.get("/fibonacci/2")
+    assert response.status_code == 200
+    assert response.json() == {"result": 1}
+
+    response = client.get("/fibonacci/10")
+    assert response.status_code == 200
+    assert response.json() == {"result": 55}
+
+    response = client.get("/fibonacci/-1")
+    assert response.status_code == 200
+    assert response.json() == {"error": "Input must be a non-negative integer"}
