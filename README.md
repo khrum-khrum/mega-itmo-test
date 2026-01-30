@@ -1,11 +1,46 @@
 # mega-itmo-test
 Тестовый репозиторий для проверки Агента
 
-## Lint locally (same as CI)
+## Usage
+
+To set up the environment and install dependencies:
 
 ```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"   # or: pip install ruff
-make lint                  # ruff check + ruff format --check
-make format                # auto-fix
+make install
+```
+
+To run lint checks (same as CI):
+
+```bash
+make lint
+```
+
+To auto-fix lint and format issues:
+
+```bash
+make format
+```
+
+To run tests:
+
+```bash
+make test
+```
+
+To run the application:
+
+```bash
+make run
+```
+
+To run all checks (install, lint, test, and run):
+
+```bash
+make all
+```
+
+To clean up build artifacts and the virtual environment:
+
+```bash
+make clean
 ```
