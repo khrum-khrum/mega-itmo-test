@@ -49,7 +49,7 @@ def test_set_and_get_value():
     value = "testvalue"
 
     # Test POST /value/{key}
-    response = client.post(f"/value/{key}", json=value)
+    response = client.post(f"/value/{key}", json={"value": value})
     assert response.status_code == 200
     assert response.json() == {"message": f"Value for key '{key}' set successfully"}
 

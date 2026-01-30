@@ -1,10 +1,14 @@
 from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 import uvicorn
 
 app = FastAPI()
 
 # In-memory dictionary to store key-value pairs
 cache = {}
+
+class Item(BaseModel):
+    value: str
 
 def fibonacci(n: int) -> int:
     if n <= 0:
@@ -40,8 +44,8 @@ async def get_fibonacci(n: int):
     return {"result": fibonacci(n)}
 
 @app.post("/value/{key}")
-async def set_value(key: str, value: str):
-    cache[key] = value
+async def set_value(key: str, item: Item):
+    cache[key] = item.value
     return {"message": f"Value for key '{key}' set successfully"}
 
 @app.get("/value/{key}")
