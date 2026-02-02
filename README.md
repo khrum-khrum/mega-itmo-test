@@ -19,6 +19,8 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+**Note:** This project uses `Makefile` for common development tasks. If you encounter a "make: not found" error, you may need to install `make` on your system.
+
 ### Linting and Formatting
 
 This project uses `ruff` for code linting and formatting.
@@ -31,7 +33,7 @@ make format                # auto-fix
 ### Testing
 
 ```bash
-make test
+make test                  # Runs pytest
 ```
 
 ### Running the Application
